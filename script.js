@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <script>
-        //psudo code:
+        //psudo code: [from the very start.]
         //The game of "Rock, Paper, Scissors":
         //function 1 (user's input)
         // V 1. Get an input from the user of (rock, paper or scissors)
@@ -24,9 +12,12 @@
         //function 4 (score)
         //7. get a score from 5 rounds
 
+
+        //Score counter 
         let userScore = 0;
         let botScore = 0;
 
+        //function that getting an input from the user and checks that the input is a string.
         function playerSelection() {
             var playerInput = window.prompt("Enter your choise: ");
             if (!/^[a-zA-Z]+$/.test(playerInput) || !playerInput) {
@@ -37,11 +28,13 @@
             }
         }
 
+        //function that convert user's input into low case chars 
         function convert_input_to_lowChar() {
             var playerChoice = playerSelection().toLowerCase();
             return playerChoice;
         }
 
+        //function that receiving the converted user's input and making sure that the input is legit.
         function log_users_input() {
             var userChoice = convert_input_to_lowChar();
             if (userChoice === "rock" || userChoice === "paper" || userChoice === "scissors") {
@@ -53,9 +46,12 @@
 
         }
 
+        //function that checking who the winner is. 
         function check_winner() {
+
             var userChoice = log_users_input();
             var botChoice = computerPlay();
+
             if (userChoice === "paper" && botChoice === "rock" ||
                 userChoice === "rock" && botChoice === "scissors" ||
                 userChoice === "scissors" && botChoice === "paper") {
@@ -70,6 +66,7 @@
             }
         }
 
+        //function that randomly genarates computer choice
         function computerPlay() {
             var bot_choice = Math.random() * 3;
             if (bot_choice <= 1) {
@@ -82,6 +79,7 @@
             return bot_choice;
         }
 
+        //The main function that keeping the score and running all the others
         function five_round_game() {
             while (userScore < 5 && botScore < 5) {
                 var result = check_winner();
@@ -100,6 +98,7 @@
             return winner_declaretion();
         }
 
+        //The function that declare the winner in the end
         function winner_declaretion() {
             if (userScore > botScore) {
                 return "YOU WON THE GAME";
@@ -107,47 +106,3 @@
                 return "YOU LOST THE GAME";
             }
         }
-
-
-        // how to log score?
-        //
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // function playRound(playerSelection, computerSelection) {
-        //     function playerSelect() {
-        //         var coice = window.promp
-        //     }
-
-
-        //     const rock = "rock";
-        //     const paper = "paper";
-        //     const scissors = "scissors";
-
-
-        //     if (playerSelection == computerSelection) {
-        //         console.log("It's a tie - No one wins!");
-        //     } else if (playerSelection == "rock" && computerSelection == "paper") {
-
-
-
-        //     }
-        // }
-    </script>
-</body>
-
-</html>
